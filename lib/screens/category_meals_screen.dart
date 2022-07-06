@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../data/dummy_data.dart';
 import '../models/meal.dart';
 import '../widgets/meal_item.dart';
@@ -42,9 +43,11 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   }
 
   void _removeMeal(String mealID) {
-    setState(() {
-      displayedMeals.removeWhere((meal) => meal.id == mealID);
-    });
+    setState(
+      () {
+        displayedMeals.removeWhere((meal) => meal.id == mealID);
+      },
+    );
   }
 
   @override
@@ -52,6 +55,14 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(categoryTitle),
+        actions: [
+          Padding(
+            padding: EdgeInsets.all(15),
+            child: Icon(
+              Icons.filter_alt,
+            ),
+          ),
+        ],
       ),
       body: ListView.builder(
         itemBuilder: (ctx, index) {
