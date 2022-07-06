@@ -7,37 +7,37 @@ const DUMMY_CATEGORIES = const [
   Category(
     id: 'c1',
     title: 'Italian',
-    color: Colors.purple,
+    color: Color.fromRGBO(255, 145, 0, 1),
   ),
   Category(
     id: 'c2',
     title: 'Quick & Easy',
-    color: Colors.red,
+    color: Color.fromRGBO(234, 79, 94, 1),
   ),
   Category(
     id: 'c3',
     title: 'Hamburgers',
-    color: Colors.orange,
+    color: Color.fromRGBO(33, 114, 254, 1),
   ),
   Category(
     id: 'c4',
-    title: 'German',
-    color: Colors.amber,
+    title: 'Dessert',
+    color: Color.fromRGBO(132, 137, 255, 1),
   ),
   Category(
     id: 'c5',
     title: 'Light & Lovely',
-    color: Colors.blue,
+    color: Color.fromRGBO(214, 38, 102, 1),
   ),
   Category(
     id: 'c6',
     title: 'Exotic',
-    color: Colors.green,
+    color: Color.fromRGBO(236, 156, 1, 1),
   ),
   Category(
     id: 'c7',
     title: 'Breakfast',
-    color: Colors.lightBlue,
+    color: Color.fromRGBO(2, 155, 57, 1),
   ),
   Category(
     id: 'c8',
@@ -156,12 +156,12 @@ const DUMMY_MEALS = const [
     categories: [
       'c4',
     ],
-    title: 'Wiener Schnitzel',
+    title: 'New York Cheese Cake',
     affordability: Affordability.Luxurious,
     complexity: Complexity.Challenging,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg',
-    duration: 60,
+        'https://static01.nyt.com/images/2021/11/02/dining/dg-Tall-and-Creamy-Cheesecake/dg-Tall-and-Creamy-Cheesecake-articleLarge.jpg',
+    duration: 180,
     ingredients: [
       '8 Veal Cutlets',
       '4 Eggs',
