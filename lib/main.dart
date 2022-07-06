@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/screens/categories_screen.dart';
 import 'data/dummy_data.dart';
-import './screens/filters_screen.dart';
+import './screens/setting_screen.dart';
 import './screens/meal_detail_screen.dart';
 import './screens/tabs_screen.dart';
 import './screens/category_meals_screen.dart';
@@ -69,11 +69,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'DeliMeals',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.pink)
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.red)
             .copyWith(secondary: Colors.amber),
-        canvasColor: Color.fromRGBO(255, 254, 229, 1),
+        canvasColor: Color.fromRGBO(247, 243, 239, 1),
         textTheme: ThemeData.light().textTheme.copyWith(
               bodyText1: TextStyle(
                 color: Color.fromRGBO(20, 51, 51, 1),
