@@ -11,14 +11,14 @@ class MealItem extends StatelessWidget {
   final Complexity complexity;
   final Affordability affordability;
 
-  MealItem(
-      {@required this.id,
-      @required this.title,
-      @required this.imageURL,
-      @required this.duration,
-      @required this.complexity,
-      @required this.affordability,
-      });
+  MealItem({
+    @required this.id,
+    @required this.title,
+    @required this.imageURL,
+    @required this.duration,
+    @required this.complexity,
+    @required this.affordability,
+  });
 
   String get ComplexityText {
     switch (complexity) {
@@ -88,62 +88,63 @@ class MealItem extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                Positioned(
-                  bottom: 20,
-                  right: 10,
-                  child: Container(
-                    width: 220,
-                    color: Colors.black54,
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      title,
-                      style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.white,
-                        overflow: TextOverflow.fade,
-                      ),
-                      softWrap: true,
-                    ),
-                  ),
-                )
               ],
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
+              child: Column(
+                children: [
                   Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.schedule,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Flexible(
+                        child: Text(
+                            title,
+                          style: TextStyle(
+                            fontSize: 23,
+                            fontWeight: FontWeight.w400
+                          ),
+                        ),
                       ),
-                      SizedBox(
-                        width: 6,
-                      ),
-                      Text('$duration min'),
                     ],
                   ),
+                  SizedBox(height: 15),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Icon(
-                        Icons.work,
+                      Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.schedule,
+                          ),
+                          SizedBox(
+                            width: 6,
+                          ),
+                          Text('$duration min'),
+                        ],
                       ),
-                      SizedBox(
-                        width: 6,
+                      Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.work,
+                          ),
+                          SizedBox(
+                            width: 6,
+                          ),
+                          Text(ComplexityText),
+                        ],
                       ),
-                      Text(ComplexityText),
-                    ],
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.attach_money,
+                      Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.attach_money,
+                          ),
+                          SizedBox(
+                            width: 6,
+                          ),
+                          Text(AffordabilityText),
+                        ],
                       ),
-                      SizedBox(
-                        width: 6,
-                      ),
-                      Text(AffordabilityText),
                     ],
                   ),
                 ],
