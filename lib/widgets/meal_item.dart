@@ -102,7 +102,7 @@ class MealItem extends StatelessWidget {
                             title,
                           style: TextStyle(
                             fontSize: 23,
-                            fontWeight: FontWeight.w400
+                            fontWeight: FontWeight.w500
                           ),
                         ),
                       ),
