@@ -63,11 +63,11 @@ const DUMMY_MEALS = const [
       'c1',
       'c2',
     ],
-    title: 'Spaghetti with Tomato Sauce',
+    title: 'Spaghetti Bolognese',
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
+        'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2013%2F12%2F06%2F201304-xl-sauce-simmered-spaghetti-al-pomodoro-2000.jpg&q=60',
     duration: 20,
     ingredients: [
       '4 Tomatoes',
@@ -94,13 +94,14 @@ const DUMMY_MEALS = const [
   Meal(
     id: 'm2',
     categories: [
+      'c1',
       'c2',
     ],
-    title: 'Toast Hawaii',
+    title: 'Fettuccine Alfredo',
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
+        'https://cdn.loveandlemons.com/wp-content/uploads/2020/01/fettuccine-alfredo.jpg',
     duration: 10,
     ingredients: [
       '1 Slice White Bread',
@@ -125,12 +126,12 @@ const DUMMY_MEALS = const [
       'c2',
       'c3',
     ],
-    title: 'Classic Hamburger',
+    title: 'Overnight Oat',
     affordability: Affordability.Pricey,
     complexity: Complexity.Simple,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
-    duration: 45,
+        'https://www.acouplecooks.com/wp-content/uploads/2020/11/Overnight-Oats-021.jpg',
+    duration: 5,
     ingredients: [
       '300g Cattle Hack',
       '1 Tomato',
@@ -378,11 +379,11 @@ const DUMMY_MEALS = const [
       'c5',
       'c10',
     ],
-    title: 'Asparagus Salad with Cherry Tomatoes',
+    title: 'Air Fryer Chicken Breast',
     affordability: Affordability.Luxurious,
     complexity: Complexity.Simple,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg',
+        'https://gimmedelicious.com/wp-content/uploads/2020/09/Air-Fryer-Grilled-Chicken-11.jpg',
     duration: 30,
     ingredients: [
       'White and Green Asparagus',
