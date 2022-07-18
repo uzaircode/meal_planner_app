@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_complete_guide/widgets/category_item.dart';
 
-enum Complexity { Simple, Challenging, Hard}
+enum Complexity { Simple, Challenging, Hard }
 
 enum Affordability { Affordable, Pricey, Luxurious }
 
-class Meal {
+class Meal with ChangeNotifier {
   final String id;
   final List<String> categories;
   final String title;
@@ -20,7 +21,7 @@ class Meal {
   final bool isVegan;
   final bool isVegetarian;
 
-  const Meal({
+  Meal({
     @required this.id,
     @required this.categories,
     @required this.title,
@@ -35,4 +36,5 @@ class Meal {
     @required this.isVegan,
     @required this.isVegetarian,
   });
+
 }

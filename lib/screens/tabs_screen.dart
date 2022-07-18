@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/screens/favourites_screen.dart';
 import 'package:flutter_complete_guide/widgets/main_drawer.dart';
-import '../models/meal.dart';
+import '../providers/meal.dart';
 import 'categories_screen.dart';
 
 class TabsScreen extends StatefulWidget {

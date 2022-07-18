@@ -29,7 +29,7 @@ class CategoryItem extends StatelessWidget {
           style: TextStyle(fontSize: 20, color: Colors.white),
         ),
         decoration: BoxDecoration(
-          color: color,
+          color: Theme.of(context).primaryColor,
           borderRadius: BorderRadius.circular(15),
         ),
       ),

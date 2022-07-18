@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../screens/filters_screen.dart';
+import '../screens/setting_screen.dart';
 
 class MainDrawer extends StatelessWidget {
   @override
@@ -56,7 +56,8 @@ class MainDrawer extends StatelessWidget {
             Icons.settings,
             () {
               //no back button -> example login
-              Navigator.of(context).pushReplacementNamed(FiltersScreen.routeName);
+              Navigator.of(context)
+                  .pushReplacementNamed(SettingScreen.routeName);
             },
           ),
         ],
