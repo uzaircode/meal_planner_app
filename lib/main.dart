@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/providers/meal.dart';
-import 'package:flutter_complete_guide/screens/setting_screen.dart';
 import 'package:provider/provider.dart';
 import 'color/palette.dart';
 
@@ -11,9 +9,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (ctx) => Meal(),
-        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -32,11 +27,10 @@ class MyApp extends StatelessWidget {
                 ),
               ),
         ),
-        home: SettingScreen(),
+        // home: ,
         initialRoute: '/',
         //default is '/'
         routes: {
-          SettingScreen.routeName: (ctx) => SettingScreen()
         },
       ),
     );
