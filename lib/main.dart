@@ -4,6 +4,7 @@ import 'package:flutter_complete_guide/providers/category_provider.dart';
 import 'package:flutter_complete_guide/providers/meal_provider.dart';
 import 'package:flutter_complete_guide/screens/category_detail_screen.dart';
 import 'package:flutter_complete_guide/screens/category_overview_screen.dart';
+import 'package:flutter_complete_guide/screens/meal_detail_screen.dart';
 import 'package:flutter_complete_guide/widgets/category_item.dart';
 import 'package:provider/provider.dart';
 import 'color/palette.dart';
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
         //default is '/'
         routes: {
           CategoryDetailScreen.routeName: (ctx) => CategoryDetailScreen(),
+          MealDetailScreen.routeName: (ctx) => MealDetailScreen()
         },
       ),
     );

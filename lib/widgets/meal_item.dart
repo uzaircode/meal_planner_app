@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../data/meal.dart';
+import '../screens/meal_detail_screen.dart';
 
 class MealItem extends StatelessWidget {
   final String id;
@@ -19,7 +20,7 @@ class MealItem extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        print(meal.categories);
+        Navigator.pushNamed(context, MealDetailScreen.routeName, arguments: meal.id);
       },
       child: Card(
         shape: RoundedRectangleBorder(
@@ -51,12 +52,15 @@ class MealItem extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text(
-                        meal.title,
-                        style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: 24,
-                          fontWeight: FontWeight.w500,
+                      Flexible(
+                        child: Text(
+                          meal.title,
+                          softWrap: true,
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontSize: 24,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ],
