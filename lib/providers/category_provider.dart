@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../data/category.dart';
 
 class CategoryMeal with ChangeNotifier {
-
   final List<CategoryItems> _categories = [
     CategoryItems(
       id: 'c1',
@@ -12,6 +11,14 @@ class CategoryMeal with ChangeNotifier {
     CategoryItems(
       id: 'c2',
       title: 'Quick and Easy',
+    ),
+    CategoryItems(
+      id: 'c3',
+      title: 'Dessert',
+    ),
+    CategoryItems(
+      id: 'c4',
+      title: 'Healthy Choice',
     )
   ];
 
@@ -22,5 +29,4 @@ class CategoryMeal with ChangeNotifier {
   CategoryItems findById(String id) {
     return _categories.firstWhere((category) => category.id == id);
   }
-
 }

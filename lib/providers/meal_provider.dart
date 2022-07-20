@@ -4,11 +4,22 @@ import '../data/meal.dart';
 class Meals with ChangeNotifier {
 
   final List<Meal> _meals = [
+    /*
+    1. new york cheesecake
+    2. spaghetti bolognese
+    3. overnight oat
+    4. fettuccine alfredo
+    5. pancake
+    6. air fryer chicken breast
+    7.
+    8.
+    9.
+    10.
+     */
     Meal(
       id: 'm1',
       categories: [
-        'c1',
-        'c2'
+        'c3'
       ],
       title: 'New York Cheesecake',
       description: 'delicious!',
@@ -35,8 +46,7 @@ class Meals with ChangeNotifier {
     Meal(
       id: 'm2',
       categories: [
-        'c1',
-        'c2'
+        'c1'
       ],
       title: 'Spaghetti Bolognese',
       description: 'delicious!',
@@ -63,8 +73,8 @@ class Meals with ChangeNotifier {
     Meal(
       id: 'm3',
       categories: [
-        'c1',
-        'c2'
+        'c2',
+        'c4'
       ],
       title: 'Overnight Oat',
       description: 'delicious!',
@@ -91,12 +101,12 @@ class Meals with ChangeNotifier {
     Meal(
       id: 'm4',
       categories: [
-        'c2'
+        'c1'
       ],
-      title: 'test',
+      title: 'Fettuccine Alfredo',
       description: 'delicious!',
       imageUrl:
-      'https://gimmedelicious.com/wp-content/uploads/2020/09/Air-Fryer-Grilled-Chicken-11.jpg',
+      'https://cdn.loveandlemons.com/wp-content/uploads/2020/01/fettuccine-alfredo.jpg',
       duration: 30,
       ingredients: [
         'White and Green Asparagus',
@@ -118,9 +128,37 @@ class Meals with ChangeNotifier {
     Meal(
       id: 'm5',
       categories: [
-        'c1'
+        'c2'
       ],
-      title: 'working?',
+      title: 'Pancakes',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/fluffyamericanpancak_74828_16x9.jpg',
+      duration: 30,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ),
+    Meal(
+      id: 'm6',
+      categories: [
+        'c2',
+        'c4'
+      ],
+      title: 'Air Fryer Chicken Breast',
       description: 'delicious!',
       imageUrl:
       'https://gimmedelicious.com/wp-content/uploads/2020/09/Air-Fryer-Grilled-Chicken-11.jpg',
@@ -143,14 +181,14 @@ class Meals with ChangeNotifier {
       ],
     ),
     Meal(
-      id: 'm6',
+      id: 'm7',
       categories: [
-        'c1'
+        'c3'
       ],
-      title: 'Air Fryer Chicken Breast',
+      title: 'Strawberry Meringue Roulade',
       description: 'delicious!',
       imageUrl:
-      'https://gimmedelicious.com/wp-content/uploads/2020/09/Air-Fryer-Grilled-Chicken-11.jpg',
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
       duration: 30,
       ingredients: [
         'White and Green Asparagus',
