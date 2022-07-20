@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../data/meal.dart';
+import '../providers/meal_provider.dart';
 
 class MealDetailScreen extends StatelessWidget {
+  static const routeName = '/meal-detail';
 
   Widget buildSectionTitle(BuildContext context, String text) {
     return Container(
@@ -26,17 +31,18 @@ class MealDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mealId = ModalRoute.of(context).settings.arguments as String;
+    final selectedMeal = Provider.of<Meals>(context).findById(mealId);
+
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
             expandedHeight: 160.0,
             flexibleSpace: FlexibleSpaceBar(
-              // title: Text('${selectedMeal.title}'),
               background: Image.network(
-                'd'
-                // selectedMeal.imageUrl,
-                // fit: BoxFit.cover,
+                selectedMeal.imageUrl,
+                fit: BoxFit.cover,
               ),
             ),
           ),
@@ -46,13 +52,15 @@ class MealDetailScreen extends StatelessWidget {
               ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                // itemCount: selectedMeal.ingredients.length,
+                itemCount: selectedMeal.ingredients.length,
                 itemBuilder: (ctx, index) => Padding(
                   padding:
-                  const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                   child: Text(
-                    'd'
-                    // selectedMeal.ingredients[index],
+                    selectedMeal.ingredients[index],
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                    ),
                   ),
                 ),
               ),
@@ -64,7 +72,7 @@ class MealDetailScreen extends StatelessWidget {
                 ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  // itemCount: selectedMeal.steps.length,
+                  itemCount: selectedMeal.steps.length,
                   itemBuilder: (ctx, index) => Column(
                     children: [
                       ListTile(
@@ -73,10 +81,7 @@ class MealDetailScreen extends StatelessWidget {
                             '# ${(index + 1)}',
                           ),
                         ),
-                        title: Text(
-                          'd'
-                          // selectedMeal.steps[index],
-                        ),
+                        title: Text(selectedMeal.steps[index]),
                       ),
                       Divider(),
                     ],

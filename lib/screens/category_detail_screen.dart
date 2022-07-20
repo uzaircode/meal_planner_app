@@ -69,38 +69,42 @@ class CategoryDetailScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    InkWell(
-                      onTap: () {
-                        print('product id : ' + categoryId);
-                        print(categoriesMeals);
-                      },
-                      child: Container(
-                        width: 150,
-                        height: 50,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(width: 10),
-                            Text(
-                              'test',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                              ),
-                            ),
-                          ],
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color.fromRGBO(1, 115, 112, 1.0),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      ),
+                    // InkWell(
+                    //   onTap: () {
+                    //     // print('product id : ' + categoryId);
+                    //     // print(categoriesMeals);
+                    //   },
+                    //   child: Container(
+                    //     width: 150,
+                    //     height: 50,
+                    //     child: Row(
+                    //       mainAxisAlignment: MainAxisAlignment.center,
+                    //       children: [
+                    //         SizedBox(width: 10),
+                    //         Text(
+                    //           'Filtering',
+                    //           style: TextStyle(
+                    //             color: Colors.white,
+                    //             fontSize: 18,
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     decoration: BoxDecoration(
+                    //       color: Color.fromRGBO(1, 115, 112, 1.0),
+                    //       borderRadius: BorderRadius.circular(15),
+                    //     ),
+                    //   ),
+                    // ),
+                    _buildInkWell(
+                      'Filter',
+                      Icon(Icons.filter_alt, color: Colors.white),
                     ),
-                    // _buildInkWell(
-                    //     'Filter', Icon(Icons.filter_alt, color: Colors.white)),
                     SizedBox(width: 20),
                     _buildInkWell(
-                        'Sorting', Icon(Icons.sort, color: Colors.white))
+                      'Sorting',
+                      Icon(Icons.sort, color: Colors.white),
+                    )
                   ],
                 ),
                 Container(
