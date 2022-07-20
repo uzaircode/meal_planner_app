@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/data/category.dart';
+import 'package:flutter_complete_guide/providers/category_provider.dart';
+import 'package:flutter_complete_guide/providers/meal_provider.dart';
+import 'package:flutter_complete_guide/screens/category_detail_screen.dart';
+import 'package:flutter_complete_guide/screens/category_overview_screen.dart';
+import 'package:flutter_complete_guide/widgets/category_item.dart';
 import 'package:provider/provider.dart';
 import 'color/palette.dart';
+import 'data/meal.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,6 +16,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(
+          create: (ctx) => Meals(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => CategoryMeal(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => Meal(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => CategoryItems(),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -20,17 +39,18 @@ class MyApp extends StatelessWidget {
           primaryColor: Color.fromRGBO(4, 38, 40, 1.0),
           textTheme: ThemeData.light().textTheme.copyWith(
                 bodyText1: TextStyle(
-                  color: Color.fromRGBO(20, 51, 51, 1),
+                  color: Color.fromRGBO(247, 247, 247, 1),
                 ),
                 bodyText2: TextStyle(
-                  color: Color.fromRGBO(20, 51, 51, 1),
+                  color: Color.fromRGBO(247, 247, 247, 1),
                 ),
               ),
         ),
-        // home: ,
+        home: CategoryOverviewScreen(),
         initialRoute: '/',
         //default is '/'
         routes: {
+          CategoryDetailScreen.routeName: (ctx) => CategoryDetailScreen(),
         },
       ),
     );
