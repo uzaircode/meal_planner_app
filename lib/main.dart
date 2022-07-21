@@ -40,10 +40,10 @@ class MyApp extends StatelessWidget {
           primaryColor: Color.fromRGBO(4, 38, 40, 1.0),
           textTheme: ThemeData.light().textTheme.copyWith(
                 bodyText1: TextStyle(
-                  color: Color.fromRGBO(247, 247, 247, 1),
+                  color: Color.fromRGBO(4, 38, 40, 1.0),
                 ),
                 bodyText2: TextStyle(
-                  color: Color.fromRGBO(247, 247, 247, 1),
+                  color: Color.fromRGBO(4, 38, 40, 1.0),
                 ),
               ),
         ),
