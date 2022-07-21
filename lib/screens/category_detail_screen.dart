@@ -45,7 +45,7 @@ class CategoryDetailScreen extends StatelessWidget {
     final displayCategory = Provider.of<CategoryMeal>(context).findById(categoryId);
 
     final mealData = Provider.of<Meal>(context);
-    final categoriesMeals = Provider.of<Meals>(context).matchCategoryId(categoryId);
+    final categoriesMeals = Provider.of<Meals>(context).matchWithCategoryId(categoryId);
 
     return Scaffold(
       body: CustomScrollView(

@@ -7,19 +7,19 @@ class CategoryMeal with ChangeNotifier {
     CategoryItems(
       id: 'c1',
       title: 'Italian',
-    ),
+    ), //italian
     CategoryItems(
       id: 'c2',
       title: 'Quick and Easy',
-    ),
+    ), //quick and easy
     CategoryItems(
       id: 'c3',
       title: 'Dessert',
-    ),
+    ), //dessert
     CategoryItems(
       id: 'c4',
       title: 'Healthy Choice',
-    )
+    ) //healthy choice
   ];
 
   List<CategoryItems> get allCategories {

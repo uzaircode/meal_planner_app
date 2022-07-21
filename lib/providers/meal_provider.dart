@@ -4,18 +4,6 @@ import '../data/meal.dart';
 class Meals with ChangeNotifier {
 
   final List<Meal> _meals = [
-    /*
-    1. new york cheesecake
-    2. spaghetti bolognese
-    3. overnight oat
-    4. fettuccine alfredo
-    5. pancake
-    6. air fryer chicken breast
-    7.
-    8.
-    9.
-    10.
-     */
     Meal(
       id: 'm1',
       categories: [
@@ -42,7 +30,7 @@ class Meals with ChangeNotifier {
         'Mix with asparagus, salad and dressing',
         'Serve with Baguette'
       ],
-    ),
+    ), // 1. new york cheesecake
     Meal(
       id: 'm2',
       categories: [
@@ -69,7 +57,7 @@ class Meals with ChangeNotifier {
         'Mix with asparagus, salad and dressing',
         'Serve with Baguette'
       ],
-    ),
+    ), // 2. spaghetti bolognese
     Meal(
       id: 'm3',
       categories: [
@@ -97,7 +85,7 @@ class Meals with ChangeNotifier {
         'Mix with asparagus, salad and dressing',
         'Serve with Baguette'
       ],
-    ),
+    ), // 3. overnight oat
     Meal(
       id: 'm4',
       categories: [
@@ -124,7 +112,7 @@ class Meals with ChangeNotifier {
         'Mix with asparagus, salad and dressing',
         'Serve with Baguette'
       ],
-    ),
+    ), // 4. fettuccine alfredo
     Meal(
       id: 'm5',
       categories: [
@@ -151,7 +139,7 @@ class Meals with ChangeNotifier {
         'Mix with asparagus, salad and dressing',
         'Serve with Baguette'
       ],
-    ),
+    ), // 5. pancake
     Meal(
       id: 'm6',
       categories: [
@@ -179,7 +167,7 @@ class Meals with ChangeNotifier {
         'Mix with asparagus, salad and dressing',
         'Serve with Baguette'
       ],
-    ),
+    ), // 6. air fryer chicken breast
     Meal(
       id: 'm7',
       categories: [
@@ -206,8 +194,9 @@ class Meals with ChangeNotifier {
         'Mix with asparagus, salad and dressing',
         'Serve with Baguette'
       ],
-    )
+    ) // 7. strawberry meringue roulade
   ];
+
 
   List<Meal> get allMeals {
     return [..._meals];
@@ -217,7 +206,7 @@ class Meals with ChangeNotifier {
     return _meals.firstWhere((category) => category.id == id);
   }
 
-  List<Meal> matchCategoryId(String id) {
+  List<Meal> matchWithCategoryId(String id) {
     return _meals.where((element) => element.categories.contains(id)).toList();
   }
 }
