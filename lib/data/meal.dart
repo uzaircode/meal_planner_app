@@ -1,5 +1,17 @@
 import 'package:flutter/foundation.dart';
 
+enum Complexity {
+  Simple,
+  Challenging,
+  Hard
+}
+
+enum Affordability {
+  Affordable,
+  Pricey,
+  Luxurious
+}
+
 class Meal with ChangeNotifier {
   final String id;
   final String title;
@@ -7,6 +19,8 @@ class Meal with ChangeNotifier {
   final String description;
   final String imageUrl;
   final int duration;
+  final Complexity complexity;
+  final Affordability affordability;
   final List<String> ingredients;
   final List<String> steps;
 
@@ -17,6 +31,8 @@ class Meal with ChangeNotifier {
     @required this.description,
     @required this.imageUrl,
     @required this.duration,
+    @required this.complexity,
+    @required this.affordability,
     @required this.ingredients,
     @required this.steps,
   });
