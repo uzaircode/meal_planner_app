@@ -1,19 +1,19 @@
+
 import 'package:flutter/foundation.dart';
 import '../data/meal.dart';
 
 class Meals with ChangeNotifier {
-
   final List<Meal> _meals = [
     Meal(
       id: 'm1',
-      categories: [
-        'c3'
-      ],
+      categories: ['c3'],
       title: 'New York Cheesecake',
       description: 'delicious!',
       imageUrl:
-      'https://static01.nyt.com/images/2021/11/02/dining/dg-Tall-and-Creamy-Cheesecake/dg-Tall-and-Creamy-Cheesecake-articleLarge.jpg',
+          'https://static01.nyt.com/images/2021/11/02/dining/dg-Tall-and-Creamy-Cheesecake/dg-Tall-and-Creamy-Cheesecake-articleLarge.jpg',
       duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
       ingredients: [
         'White and Green Asparagus',
         '30g Pine Nuts',
@@ -33,14 +33,14 @@ class Meals with ChangeNotifier {
     ), // 1. new york cheesecake
     Meal(
       id: 'm2',
-      categories: [
-        'c1'
-      ],
+      categories: ['c1'],
       title: 'Spaghetti Bolognese',
       description: 'delicious!',
       imageUrl:
-      'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2013%2F12%2F06%2F201304-xl-sauce-simmered-spaghetti-al-pomodoro-2000.jpg&q=60',
+          'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2013%2F12%2F06%2F201304-xl-sauce-simmered-spaghetti-al-pomodoro-2000.jpg&q=60',
       duration: 30,
+      complexity: Complexity.Simple,
+      affordability: Affordability.Affordable,
       ingredients: [
         'White and Green Asparagus',
         '30g Pine Nuts',
@@ -60,15 +60,14 @@ class Meals with ChangeNotifier {
     ), // 2. spaghetti bolognese
     Meal(
       id: 'm3',
-      categories: [
-        'c2',
-        'c4'
-      ],
+      categories: ['c2', 'c4'],
       title: 'Overnight Oat',
       description: 'delicious!',
       imageUrl:
-      'https://www.acouplecooks.com/wp-content/uploads/2020/11/Overnight-Oats-021.jpg',
+          'https://www.acouplecooks.com/wp-content/uploads/2020/11/Overnight-Oats-021.jpg',
       duration: 30,
+      complexity: Complexity.Simple,
+      affordability: Affordability.Affordable,
       ingredients: [
         'White and Green Asparagus',
         '30g Pine Nuts',
@@ -88,14 +87,14 @@ class Meals with ChangeNotifier {
     ), // 3. overnight oat
     Meal(
       id: 'm4',
-      categories: [
-        'c1'
-      ],
+      categories: ['c1'],
       title: 'Fettuccine Alfredo',
       description: 'delicious!',
       imageUrl:
-      'https://cdn.loveandlemons.com/wp-content/uploads/2020/01/fettuccine-alfredo.jpg',
+          'https://cdn.loveandlemons.com/wp-content/uploads/2020/01/fettuccine-alfredo.jpg',
       duration: 30,
+      complexity: Complexity.Challenging,
+      affordability: Affordability.Pricey,
       ingredients: [
         'White and Green Asparagus',
         '30g Pine Nuts',
@@ -115,14 +114,14 @@ class Meals with ChangeNotifier {
     ), // 4. fettuccine alfredo
     Meal(
       id: 'm5',
-      categories: [
-        'c2'
-      ],
+      categories: ['c2'],
       title: 'Pancakes',
       description: 'delicious!',
       imageUrl:
-      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/fluffyamericanpancak_74828_16x9.jpg',
+          'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/fluffyamericanpancak_74828_16x9.jpg',
       duration: 30,
+      complexity: Complexity.Simple,
+      affordability: Affordability.Affordable,
       ingredients: [
         'White and Green Asparagus',
         '30g Pine Nuts',
@@ -142,15 +141,14 @@ class Meals with ChangeNotifier {
     ), // 5. pancake
     Meal(
       id: 'm6',
-      categories: [
-        'c2',
-        'c4'
-      ],
+      categories: ['c2', 'c4'],
       title: 'Air Fryer Chicken Breast',
       description: 'delicious!',
       imageUrl:
-      'https://gimmedelicious.com/wp-content/uploads/2020/09/Air-Fryer-Grilled-Chicken-11.jpg',
+          'https://gimmedelicious.com/wp-content/uploads/2020/09/Air-Fryer-Grilled-Chicken-11.jpg',
       duration: 30,
+      complexity: Complexity.Simple,
+      affordability: Affordability.Affordable,
       ingredients: [
         'White and Green Asparagus',
         '30g Pine Nuts',
@@ -170,14 +168,14 @@ class Meals with ChangeNotifier {
     ), // 6. air fryer chicken breast
     Meal(
       id: 'm7',
-      categories: [
-        'c3'
-      ],
+      categories: ['c3'],
       title: 'Strawberry Meringue Roulade',
       description: 'delicious!',
       imageUrl:
-      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+          'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
       duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
       ingredients: [
         'White and Green Asparagus',
         '30g Pine Nuts',
@@ -197,7 +195,6 @@ class Meals with ChangeNotifier {
     ) // 7. strawberry meringue roulade
   ];
 
-
   List<Meal> get allMeals {
     return [..._meals];
   }
@@ -209,4 +206,5 @@ class Meals with ChangeNotifier {
   List<Meal> matchWithCategoryId(String id) {
     return _meals.where((element) => element.categories.contains(id)).toList();
   }
+
 }
