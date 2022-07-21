@@ -77,6 +77,7 @@ class MealItem extends StatelessWidget {
                           SizedBox(
                             width: 6,
                           ),
+                          Text(meal.duration.toString()),
                         ],
                       ),
                       Row(
@@ -87,7 +88,7 @@ class MealItem extends StatelessWidget {
                           SizedBox(
                             width: 6,
                           ),
-                          Text('d'),
+                          Text(meal.complexity.name.toString()),
                         ],
                       ),
                       Row(
@@ -98,7 +99,7 @@ class MealItem extends StatelessWidget {
                           SizedBox(
                             width: 6,
                           ),
-                          Text('d'),
+                          Text(meal.affordability.name.toString()),
                         ],
                       ),
                     ],
