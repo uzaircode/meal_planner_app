@@ -32,7 +32,7 @@ class CategoryDetailScreen extends StatelessWidget {
           ],
         ),
         decoration: BoxDecoration(
-          color: Color.fromRGBO(1, 115, 112, 1.0),
+          color: Color.fromRGBO(4, 38, 40, 1.0),
           borderRadius: BorderRadius.circular(15),
         ),
       ),
@@ -42,10 +42,12 @@ class CategoryDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final categoryId = ModalRoute.of(context).settings.arguments as String;
-    final displayCategory = Provider.of<CategoryMeal>(context).findById(categoryId);
+    final displayCategory =
+        Provider.of<CategoryMeal>(context).findById(categoryId);
 
     final mealData = Provider.of<Meal>(context);
-    final categoriesMeals = Provider.of<Meals>(context).matchWithCategoryId(categoryId);
+    final categoriesMeals =
+        Provider.of<Meals>(context).matchWithCategoryId(categoryId);
 
     return Scaffold(
       body: CustomScrollView(

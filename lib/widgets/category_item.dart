@@ -26,6 +26,7 @@ class CategoryItem extends StatelessWidget {
           category.title,
           style: TextStyle(
             fontSize: 20,
+            color: Colors.white,
           ),
         ),
         decoration: BoxDecoration(

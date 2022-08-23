@@ -11,6 +11,8 @@ class MealGrid extends StatelessWidget {
     final category = categoryData.allCategories;
 
     return GridView.builder(
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
       padding: const EdgeInsets.all(10),
       itemCount: category.length,
       itemBuilder: (ctx, i) => ChangeNotifierProvider.value(

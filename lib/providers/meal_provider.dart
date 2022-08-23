@@ -192,7 +192,574 @@ class Meals with ChangeNotifier {
         'Mix with asparagus, salad and dressing',
         'Serve with Baguette'
       ],
-    ) // 7. strawberry meringue roulade
+    ), // 8. buttermilk chicken
+    Meal(
+      id: 'm8',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 9. black pepper chicken
+    Meal(
+      id: 'm9',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 10. nasi goreng
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 11. maggi sup
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 12. maggi goreng
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ]
+    ), // 13. sup ayam
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 14. kuew teow goreng
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 16. kaya toast
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 17. american cheese toast
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 18. lasagna
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 19. sup tomyam
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 20. ayam kicap
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 21. nasi goreng hawaii
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 22. bihun goreng
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 23. burrito
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 24. nojito
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 25. quesadilla
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 26. mee goreng
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 27. ayam goreng kunyit
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 28. ayam goreng daging ala thai
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 29. sardin ikan
+    Meal(
+      id: 'm11',
+      categories: ['c3'],
+      title: 'Strawberry Meringue Roulade',
+      description: 'delicious!',
+      imageUrl:
+      'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/strawberrymeringuero_74824_16x9.jpg',
+      duration: 30,
+      complexity: Complexity.Hard,
+      affordability: Affordability.Luxurious,
+      ingredients: [
+        'White and Green Asparagus',
+        '30g Pine Nuts',
+        '300g Cherry Tomatoes',
+        'Salad',
+        'Salt, Pepper and Olive Oil'
+      ],
+      steps: [
+        'Wash, peel and cut the asparagus',
+        'Cook in salted water',
+        'Salt and pepper the asparagus',
+        'Roast the pine nuts',
+        'Halve the tomatoes',
+        'Mix with asparagus, salad and dressing',
+        'Serve with Baguette'
+      ],
+    ), // 30. chocolate souffle
   ];
 
   List<Meal> get allMeals {
