@@ -4,15 +4,15 @@ import '../data/meal.dart';
 import '../screens/meal_detail_screen.dart';
 
 class MealItem extends StatelessWidget {
-  final String id;
-  final String title;
-  final String imageUrl;
+  // final String id;
+  // final String title;
+  // final String imageUrl;
 
-  MealItem({
-    @required this.id,
-    @required this.title,
-    @required this.imageUrl,
-  });
+  // MealItem({
+  //   @required this.id,
+  //   @required this.title,
+  //   @required this.imageUrl,
+  // });
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,11 @@ class MealItem extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, MealDetailScreen.routeName, arguments: meal.id);
+        Navigator.pushNamed(
+          context,
+          MealDetailScreen.routeName,
+          arguments: meal.id,
+        );
       },
       child: Card(
         shape: RoundedRectangleBorder(
@@ -88,7 +92,7 @@ class MealItem extends StatelessWidget {
                           SizedBox(
                             width: 6,
                           ),
-                          Text(meal.complexity.name.toString()),
+                          // Text(meal.complexity.name.toString()),
                         ],
                       ),
                       Row(
@@ -99,7 +103,7 @@ class MealItem extends StatelessWidget {
                           SizedBox(
                             width: 6,
                           ),
-                          Text(meal.affordability.name.toString()),
+                          // Text(meal.affordability.name.toString()),
                         ],
                       ),
                     ],

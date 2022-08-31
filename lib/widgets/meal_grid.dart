@@ -13,7 +13,7 @@ class MealGrid extends StatelessWidget {
     return GridView.builder(
       physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.only(left: 10, right: 10),
       itemCount: category.length,
       itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
         value: category[i],

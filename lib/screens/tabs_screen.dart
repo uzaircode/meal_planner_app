@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_complete_guide/screens/homepage_screen.dart';
-import 'package:flutter_complete_guide/screens/favourite_screen.dart';
+import 'package:flutter_complete_guide/screens/notification_screen.dart';
 import 'package:flutter_complete_guide/screens/search_screen.dart';
 import 'package:flutter_complete_guide/screens/user_profile_screen.dart';
 
@@ -21,7 +21,7 @@ class _TabsScreenState extends State<TabsScreen> {
     HomepageScreen(),
     SearchScreen(),
     AddMealScreen(),
-    FavouriteScreen(),
+    NotificationScreen(),
     UserProfileScreen(),
   ];
 
@@ -59,8 +59,8 @@ class _TabsScreenState extends State<TabsScreen> {
             label: 'Add',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_outline),
-            label: 'Favourite',
+            icon: Icon(Icons.notifications_outlined),
+            label: 'Notification',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),

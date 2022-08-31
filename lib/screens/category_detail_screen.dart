@@ -6,9 +6,14 @@ import '../data/meal.dart';
 import '../providers/meal_provider.dart';
 import '../widgets/meal_item.dart';
 
-class CategoryDetailScreen extends StatelessWidget {
+class CategoryDetailScreen extends StatefulWidget {
   static const routeName = '/category-detail';
 
+  @override
+  State<CategoryDetailScreen> createState() => _CategoryDetailScreenState();
+}
+
+class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
   Widget _buildInkWell(String title, Icon icon) {
     return InkWell(
       onTap: () {
@@ -38,17 +43,41 @@ class CategoryDetailScreen extends StatelessWidget {
       ),
     );
   }
+  // final categoryId = ModalRoute.of(context).settings.arguments as String;
+  // final displayCategory =
+  //     Provider.of<CategoryMeal>(context).findById(categoryId);
+  // final categoriesMeals = Provider.of<Meals>(context).fetchMeals();
+
+  var _isInit = true;
+  var _isLoading = false;
+
+  @override
+  void initState() {
+    // Provider.of<Products>(context).fetchProduct(); //wont work!
+    Future.delayed(Duration.zero).then(
+      (value) => Provider.of<Meals>(context, listen: false).fetchMeals(),
+    );
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    if (_isInit) {
+      setState(() {
+        _isLoading = true;
+      });
+      Provider.of<Meals>(context, listen: false).fetchMeals().then((_) {
+        setState(() {
+          _isLoading = false;
+        });
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    final categoryId = ModalRoute.of(context).settings.arguments as String;
-    final displayCategory =
-        Provider.of<CategoryMeal>(context).findById(categoryId);
-
-    final mealData = Provider.of<Meal>(context);
-    final categoriesMeals =
-        Provider.of<Meals>(context).matchWithCategoryId(categoryId);
-
+    final mealData = Provider.of<Meals>(context, listen: false);
+    final meals = mealData.allMeals;
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
@@ -56,7 +85,8 @@ class CategoryDetailScreen extends StatelessWidget {
             expandedHeight: 90.0,
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
-                displayCategory.title,
+                // displayCategory.title,
+                'test',
                 style: TextStyle(color: Theme.of(context).primaryColor),
               ),
               centerTitle: true,
@@ -109,22 +139,22 @@ class CategoryDetailScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                Container(
-                  child: ListView.builder(
-                    padding: EdgeInsets.all(8),
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: categoriesMeals.length,
-                    itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
-                      value: categoriesMeals[i],
-                      child: MealItem(
-                        id: mealData.id,
-                        title: mealData.title,
-                        imageUrl: mealData.imageUrl,
+                _isLoading
+                    ? const Center(
+                        child: CircularProgressIndicator(
+                          color: Colors.blue,
+                        ),
+                      )
+                    : ListView.builder(
+                        padding: EdgeInsets.all(8),
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: meals.length,
+                        itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
+                          value: meals[i],
+                          child: MealItem(),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
               ],
             ),
           )

@@ -45,49 +45,49 @@ class MealDetailScreen extends StatelessWidget {
             ),
           ),
           // buildSectionTitle(context, 'Ingredients'),
-          SliverToBoxAdapter(
-            child: buildContainer(
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: selectedMeal.ingredients.length,
-                itemBuilder: (ctx, index) => Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                  child: Text(
-                    selectedMeal.ingredients[index],
-                    style: TextStyle(
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Expanded(
-              child: buildContainer(
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: selectedMeal.steps.length,
-                  itemBuilder: (ctx, index) => Column(
-                    children: [
-                      ListTile(
-                        leading: CircleAvatar(
-                          child: Text(
-                            '# ${(index + 1)}',
-                          ),
-                        ),
-                        title: Text(selectedMeal.steps[index]),
-                      ),
-                      Divider(),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
+          // SliverToBoxAdapter(
+          //   child: buildContainer(
+          //     ListView.builder(
+          //       shrinkWrap: true,
+          //       physics: const NeverScrollableScrollPhysics(),
+          //       // itemCount: selectedMeal.ingredients.length,
+          //       itemBuilder: (ctx, index) => Padding(
+          //         padding:
+          //             const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+          //         child: Text(
+          //           selectedMeal.ingredients[index],
+          //           style: TextStyle(
+          //             color: Theme.of(context).primaryColor,
+          //           ),
+          //         ),
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          // SliverToBoxAdapter(
+          //   child: Expanded(
+          //     child: buildContainer(
+          //       ListView.builder(
+          //         shrinkWrap: true,
+          //         physics: const NeverScrollableScrollPhysics(),
+          //         // itemCount: selectedMeal.steps.length,
+          //         itemBuilder: (ctx, index) => Column(
+          //           children: [
+          //             ListTile(
+          //               leading: CircleAvatar(
+          //                 child: Text(
+          //                   '# ${(index + 1)}',
+          //                 ),
+          //               ),
+          //               title: Text(selectedMeal.steps[index]),
+          //             ),
+          //             Divider(),
+          //           ],
+          //         ),
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
         // child: Column(
         //   children: <Widget>[

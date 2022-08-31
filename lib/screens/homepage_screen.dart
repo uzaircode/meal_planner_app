@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/screens/category_detail_screen.dart';
 import 'package:provider/provider.dart';
 import '../providers/category_provider.dart';
-import '../widgets/category_item.dart';
 import '../widgets/meal_grid.dart';
 
 class HomepageScreen extends StatelessWidget {
@@ -62,8 +60,22 @@ class HomepageScreen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Category'),
-                          Text('See All'),
+                          Text(
+                            'Category',
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Text(
+                            'See All',
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -98,38 +110,82 @@ class HomepageScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.all(15.0),
+                  padding: EdgeInsets.only(left: 15.0, right: 15.0),
                   child: Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Popular Recipes'),
-                          Text('See All'),
+                          Text(
+                            'Popular Recipes',
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            'See All',
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                         ],
                       ),
                       SizedBox(
-                        height: 200,
+                        height: 180,
                         width: double.infinity,
                         child: ListView.builder(
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
                           itemCount: 20,
-                          padding: EdgeInsets.all(10.0),
                           itemBuilder: (context, index) {
                             return Row(
                               children: [
-                                SizedBox(
-                                  height: 200,
-                                  width: 200,
+                                InkWell(
+                                  onTap: () {},
+                                  splashColor: Theme.of(context).primaryColor,
+                                  borderRadius: BorderRadius.circular(15),
                                   child: Container(
-                                    color: Theme.of(context).primaryColor,
+                                    height: 150,
+                                    width: 150,
+                                    padding: const EdgeInsets.all(15),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                      color: Theme.of(context).primaryColor,
+                                    ),
                                   ),
                                 ),
                                 SizedBox(width: 10),
                               ],
                             );
                           },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(15.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Main Courses',
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        'See All',
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ],
