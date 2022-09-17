@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/screens/favourites_screen.dart';
-import 'package:flutter_complete_guide/widgets/main_drawer.dart';
-import '../models/meal.dart';
-import 'categories_screen.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_complete_guide/screens/homepage_screen.dart';
+import 'package:flutter_complete_guide/screens/notification_screen.dart';
+import 'package:flutter_complete_guide/screens/search_screen.dart';
+import 'package:flutter_complete_guide/screens/user_profile_screen.dart';
+
+import 'add_meal_screen.dart';
+import 'category_detail_screen.dart';
 
 class TabsScreen extends StatefulWidget {
-  final List<Meal> favouriteMeals;
-
-  TabsScreen(this.favouriteMeals);
+  static const routeName = '/tabs';
 
   @override
   State<TabsScreen> createState() => _TabsScreenState();
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-  List<Map<String, Object>> _pages;
-  int _selectedPageIndex = 0;
+  List<Widget> _pages = [
+    HomepageScreen(),
+    SearchScreen(),
+    AddMealScreen(),
+    NotificationScreen(),
+    UserProfileScreen(),
+  ];
 
-  @override
-  initState() {
-    _pages = [
-      {'page': CategoriesScreen(), 'title': 'Categories'},
-      {'page': FavouritesScreen(widget.favouriteMeals), 'title': 'Favourites'},
-    ];
-    super.initState();
-  }
+  int _selectedPageIndex = 0;
 
   void _selectPage(int index) {
     setState(() {
@@ -35,25 +36,35 @@ class _TabsScreenState extends State<TabsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(_pages[_selectedPageIndex]['title']),
-      ),
-      drawer: MainDrawer(),
-      body: _pages[_selectedPageIndex]['page'],
+      body: _pages[_selectedPageIndex],
       bottomNavigationBar: BottomNavigationBar(
-        onTap: _selectPage,
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: Theme.of(context).colorScheme.secondary,
+        selectedItemColor: Theme.of(context).primaryColor,
+        unselectedItemColor: Colors.grey,
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
         currentIndex: _selectedPageIndex,
+        type: BottomNavigationBarType.fixed,
+        onTap: _selectPage,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.category),
-            label: 'Categories',
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.star),
-            label: 'Favourites',
+            icon: Icon(Icons.search_outlined),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add_outlined),
+            label: 'Add',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications_outlined),
+            label: 'Notification',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
           ),
         ],
       ),

@@ -1,106 +1,104 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/screens/categories_screen.dart';
-import 'data/dummy_data.dart';
-import './screens/setting_screen.dart';
-import './screens/meal_detail_screen.dart';
-import './screens/tabs_screen.dart';
-import './screens/category_meals_screen.dart';
-import 'models/meal.dart';
+import 'package:flutter_complete_guide/screens/login_screen.dart';
+import 'package:flutter_complete_guide/screens/signup_screen.dart';
+import 'package:flutter_complete_guide/screens/splash_screen.dart';
+import '../data/category.dart';
+import '../providers/auth.dart';
+import '../providers/category_provider.dart';
+import '../providers/meal_provider.dart';
+import '../screens/auth_screen.dart';
+import '../screens/category_detail_screen.dart';
+import '../screens/homepage_screen.dart';
+import '../screens/meal_detail_screen.dart';
+import '../screens/tabs_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'data/meal.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
+//remove scroll glow logic
+class MyBehavior extends ScrollBehavior {
   @override
-  State<MyApp> createState() => _MyAppState();
+  Widget buildViewportChrome(
+      BuildContext context, Widget child, AxisDirection axisDirection) {
+    return child;
+  }
 }
 
-class _MyAppState extends State<MyApp> {
-  Map<String, bool> _filters = {
-    'gluten': false,
-    'lactose': false,
-    'vegan': false,
-    'vegetarian': false,
-  };
-
-  List<Meal> _availableMeals = DUMMY_MEALS;
-  List<Meal> _favouriteMeals = [];
-
-  void _setFilters(Map<String, bool> filterData) {
-    setState(() {
-      _filters = filterData;
-
-      _availableMeals = DUMMY_MEALS.where((meal) {
-        if (_filters['gluten'] && !meal.isGlutenFree) {
-          return false;
-        }
-        if (_filters['lactose'] && !meal.isLactoseFree) {
-          return false;
-        }
-        if (_filters['vegan'] && !meal.isVegan) {
-          return false;
-        }
-        if (_filters['vegetarian'] && !meal.isVegetarian) {
-          return false;
-        }
-        return true;
-      }).toList();
-    });
-  }
-
-  void _toggleFavourite(String mealId) {
-    final existingIndex =
-        _favouriteMeals.indexWhere((meal) => meal.id == mealId);
-    if (existingIndex >= 0) {
-      setState(() {
-        _favouriteMeals.removeAt(existingIndex);
-      });
-    } else {
-      setState(() {
-        _favouriteMeals
-            .add(DUMMY_MEALS.firstWhere((meal) => meal.id == mealId));
-      });
-    }
-  }
-
-  bool _isMealFavourite(String id) {
-    return _favouriteMeals.any((meal) => meal.id == id);
-  }
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'DeliMeals',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.red)
-            .copyWith(secondary: Colors.amber),
-        canvasColor: Color.fromRGBO(247, 243, 239, 1),
-        textTheme: ThemeData.light().textTheme.copyWith(
-              bodyText1: TextStyle(
-                color: Color.fromRGBO(20, 51, 51, 1),
-              ),
-              bodyText2: TextStyle(
-                color: Color.fromRGBO(20, 51, 51, 1),
-              ),
+    return MultiProvider(
+      providers: [
+        //auth provider must be on top!
+        ChangeNotifierProvider(
+          create: (ctx) => Auth(),
+        ),
+        ChangeNotifierProxyProvider<Auth, Meals>(
+          create: (ctx) => Meals('', '', []),
+          update: (ctx, auth, previousProduct) => Meals(
+            auth.token,
+            auth.userId,
+            previousProduct == null ? [] : previousProduct.allMeals,
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => CategoryMeal(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => Meal(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => CategoryItems(),
+        ),
+      ],
+      child: Consumer<Auth>(
+        builder: (ctx, auth, _) => MaterialApp(
+          //remove scroll grow
+          builder: (context, child) {
+            return ScrollConfiguration(
+              behavior: MyBehavior(),
+              child: child,
+            );
+          },
+          debugShowCheckedModeBanner: false,
+          title: 'Uzair Meal',
+          theme: ThemeData(
+            textTheme: GoogleFonts.interTextTheme(
+              ThemeData.light().textTheme.copyWith(
+                    bodyText1: TextStyle(
+                      color: Color.fromRGBO(4, 38, 40, 1.0),
+                    ),
+                    bodyText2: TextStyle(
+                      color: Color.fromRGBO(4, 38, 40, 1.0),
+                    ),
+                  ),
             ),
+            colorScheme:
+                ThemeData().colorScheme.copyWith(primary: Colors.black),
+            primaryColor: Color.fromRGBO(4, 38, 40, 1.0),
+          ),
+          home: auth.isAuth
+              ? TabsScreen()
+              : FutureBuilder(
+                  future: auth.tryAutoLogin(),
+                  builder: (ctx, authResultSnapshot) =>
+                      authResultSnapshot.connectionState ==
+                              ConnectionState.waiting
+                          ? SplashScreen()
+                          : AuthScreen(),
+                ),
+          initialRoute: '/',
+          routes: {
+            CategoryDetailScreen.routeName: (ctx) => CategoryDetailScreen(),
+            MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+            TabsScreen.routeName: (ctx) => TabsScreen(),
+            LoginScreen.routeName: (ctx) => LoginScreen(),
+            SignUpScreen.routeName: (ctx) => SignUpScreen(),
+          },
+        ),
       ),
-      // home: TabsScreen(),
-      initialRoute: '/',
-      //default is '/'
-      routes: {
-        '/': (ctx) => TabsScreen(_favouriteMeals),
-        CategoryMealsScreen.routeName: (ctx) =>
-            CategoryMealsScreen(_availableMeals),
-        MealDetailScreen.routeName: (ctx) =>
-            MealDetailScreen(_toggleFavourite, _isMealFavourite),
-        FiltersScreen.routeName: (ctx) => FiltersScreen(_filters, _setFilters),
-      },
-      onGenerateRoute: (settings) {
-        print(settings.arguments);
-      },
-      onUnknownRoute: (settings) {
-        return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
-      },
     );
   }
 }

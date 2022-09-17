@@ -1,71 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/models/meal.dart';
-import 'package:flutter_complete_guide/screens/meal_detail_screen.dart';
-import '../models/meal.dart';
+import 'package:provider/provider.dart';
+import '../data/meal.dart';
+import '../providers/meal_provider.dart';
+import '../screens/meal_detail_screen.dart';
 
 class MealItem extends StatelessWidget {
   final String id;
   final String title;
-  final String imageURL;
-  final int duration;
-  final Complexity complexity;
-  final Affordability affordability;
+  final String imageUrl;
 
-  MealItem({
-    @required this.id,
-    @required this.title,
-    @required this.imageURL,
-    @required this.duration,
-    @required this.complexity,
-    @required this.affordability,
-  });
-
-  String get ComplexityText {
-    switch (complexity) {
-      case Complexity.Simple:
-        return 'Simple';
-        break;
-      case Complexity.Challenging:
-        return 'Challenging';
-        break;
-      case Complexity.Hard:
-        return 'Hard';
-        break;
-      default:
-        return 'Unknown';
-    }
-  }
-
-  String get AffordabilityText {
-    switch (affordability) {
-      case Affordability.Affordable:
-        return 'Affordable';
-        break;
-      case Affordability.Pricey:
-        return 'Pricey';
-        break;
-      case Affordability.Luxurious:
-        return 'Luxurious';
-        break;
-      default:
-        return 'Not Available';
-    }
-  }
-
-  void selectMeal(BuildContext context) {
-    Navigator.of(context)
-        .pushNamed(MealDetailScreen.routeName, arguments: id)
-        .then((result) {
-      if (result != null) {
-        // removeItem(result);
-      }
-    });
-  }
+  const MealItem(this.id, this.title, this.imageUrl);
 
   @override
   Widget build(BuildContext context) {
+    final scaffold = ScaffoldMessenger.of(context);
+
+    final meal = Provider.of<Meal>(context);
+
     return InkWell(
-      onTap: () => selectMeal(context),
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          MealDetailScreen.routeName,
+          arguments: meal.id,
+        );
+      },
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
@@ -82,9 +41,9 @@ class MealItem extends StatelessWidget {
                     topRight: Radius.circular(15),
                   ),
                   child: Image.network(
-                    imageURL,
+                    imageUrl,
                     width: double.infinity,
-                    height: 250,
+                    height: 200,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -95,20 +54,21 @@ class MealItem extends StatelessWidget {
               child: Column(
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Flexible(
                         child: Text(
-                            title,
+                          title,
+                          softWrap: true,
                           style: TextStyle(
-                            fontSize: 23,
-                            fontWeight: FontWeight.w500
+                            color: Theme.of(context).primaryColor,
+                            fontSize: 24,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: 15),
+                  SizedBox(height: 25),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -120,7 +80,7 @@ class MealItem extends StatelessWidget {
                           SizedBox(
                             width: 6,
                           ),
-                          Text('$duration min'),
+                          Text(meal.duration.toString()),
                         ],
                       ),
                       Row(
@@ -131,18 +91,36 @@ class MealItem extends StatelessWidget {
                           SizedBox(
                             width: 6,
                           ),
-                          Text(ComplexityText),
+                          // Text(meal.complexity.name.toString()),
                         ],
                       ),
                       Row(
                         children: <Widget>[
-                          Icon(
-                            Icons.attach_money,
+                          // Icon(
+                          //   Icons.attach_money,
+                          // ),
+                          IconButton(
+                            onPressed: () async {
+                              try {
+                                print('its flow');
+                                print(id);
+                                await Provider.of<Meals>(context, listen: false)
+                                    .deleteMeal(id);
+                              } catch (error) {
+                                scaffold.showSnackBar(
+                                  const SnackBar(
+                                    content: Text('Deletion failed!'),
+                                  ),
+                                );
+                              }
+                            },
+                            icon: const Icon(Icons.delete),
+                            color: Theme.of(context).errorColor,
                           ),
                           SizedBox(
                             width: 6,
                           ),
-                          Text(AffordabilityText),
+                          // Text(meal.affordability.name.toString()),
                         ],
                       ),
                     ],

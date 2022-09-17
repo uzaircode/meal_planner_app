@@ -1,36 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/screens/categories_screen.dart';
-import 'package:flutter_complete_guide/screens/category_meals_screen.dart';
+import 'package:flutter_complete_guide/screens/category_detail_screen.dart';
+import 'package:provider/provider.dart';
+import '../data/category.dart';
+import '../providers/category_provider.dart';
 
 class CategoryItem extends StatelessWidget {
-  final String id;
-  final String title;
-  final Color color;
-
-  CategoryItem(this.id, this.title, this.color);
-
-  void selectCategory(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed(
-      CategoryMealsScreen.routeName,
-      arguments: {'id': id, 'title': title},
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
+    final category = Provider.of<CategoryItems>(context, listen: false);
+
     return InkWell(
-      onTap: () => selectCategory(context),
+      onTap: () {
+        print(category.id);
+        Navigator.pushNamed(
+          context,
+          CategoryDetailScreen.routeName,
+          arguments: category.id,
+        );
+      },
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(15),
       child: Container(
         padding: const EdgeInsets.all(15),
         child: Text(
-          title,
-          style: TextStyle(fontSize: 20, color: Colors.white),
+          category.title,
+          style: TextStyle(
+            fontSize: 20,
+            color: Colors.white,
+          ),
         ),
         decoration: BoxDecoration(
-          color: color,
           borderRadius: BorderRadius.circular(15),
+          color: Theme.of(context).primaryColor,
         ),
       ),
     );
