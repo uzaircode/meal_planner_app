@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../data/meal.dart';
+import '../providers/meal_provider.dart';
 import '../screens/meal_detail_screen.dart';
 
 class MealItem extends StatelessWidget {
-  // final String id;
-  // final String title;
-  // final String imageUrl;
+  final String id;
+  final String title;
+  final String imageUrl;
 
-  // MealItem({
-  //   @required this.id,
-  //   @required this.title,
-  //   @required this.imageUrl,
-  // });
+  const MealItem(this.id, this.title, this.imageUrl);
 
   @override
   Widget build(BuildContext context) {
+    final scaffold = ScaffoldMessenger.of(context);
+
     final meal = Provider.of<Meal>(context);
 
     return InkWell(
@@ -42,7 +41,7 @@ class MealItem extends StatelessWidget {
                     topRight: Radius.circular(15),
                   ),
                   child: Image.network(
-                    meal.imageUrl,
+                    imageUrl,
                     width: double.infinity,
                     height: 200,
                     fit: BoxFit.cover,
@@ -58,7 +57,7 @@ class MealItem extends StatelessWidget {
                     children: [
                       Flexible(
                         child: Text(
-                          meal.title,
+                          title,
                           softWrap: true,
                           style: TextStyle(
                             color: Theme.of(context).primaryColor,
@@ -97,8 +96,26 @@ class MealItem extends StatelessWidget {
                       ),
                       Row(
                         children: <Widget>[
-                          Icon(
-                            Icons.attach_money,
+                          // Icon(
+                          //   Icons.attach_money,
+                          // ),
+                          IconButton(
+                            onPressed: () async {
+                              try {
+                                print('its flow');
+                                print(id);
+                                await Provider.of<Meals>(context, listen: false)
+                                    .deleteMeal(id);
+                              } catch (error) {
+                                scaffold.showSnackBar(
+                                  const SnackBar(
+                                    content: Text('Deletion failed!'),
+                                  ),
+                                );
+                              }
+                            },
+                            icon: const Icon(Icons.delete),
+                            color: Theme.of(context).errorColor,
                           ),
                           SizedBox(
                             width: 6,

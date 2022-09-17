@@ -63,72 +63,7 @@ class _AddMealScreenState extends State<AddMealScreen> {
           key: _form,
           child: ListView(
             children: [
-              TextFormField(
-                decoration: const InputDecoration(labelText: 'Title'),
-                textInputAction: TextInputAction.next,
-                keyboardType: TextInputType.text,
-                onFieldSubmitted: (_) => _saveForm(),
-                validator: (value) {
-                  if (value.isEmpty) {
-                    return 'Pleave provide a value!';
-                  } else {
-                    return null;
-                  }
-                },
-                onSaved: (value) {
-                  _addMeal = Meal(
-                    id: _addMeal.id,
-                    title: value,
-                    categories: _addMeal.categories,
-                    description: _addMeal.description,
-                    imageUrl: _addMeal.imageUrl,
-                  );
-                },
-              ),
-              TextFormField(
-                decoration: const InputDecoration(labelText: 'Categories'),
-                textInputAction: TextInputAction.next,
-                keyboardType: TextInputType.text,
-                onFieldSubmitted: (_) => _saveForm(),
-                validator: (value) {
-                  if (value.isEmpty) {
-                    return 'Pleave provide a value!';
-                  } else {
-                    return null;
-                  }
-                },
-                onSaved: (value) {
-                  _addMeal = Meal(
-                    id: _addMeal.id,
-                    title: _addMeal.title,
-                    categories: value,
-                    description: _addMeal.description,
-                    imageUrl: _addMeal.imageUrl,
-                  );
-                },
-              ),
-              TextFormField(
-                decoration: const InputDecoration(labelText: 'description'),
-                textInputAction: TextInputAction.next,
-                keyboardType: TextInputType.text,
-                onFieldSubmitted: (_) => _saveForm(),
-                validator: (value) {
-                  if (value.isEmpty) {
-                    return 'Pleave provide a value!';
-                  } else {
-                    return null;
-                  }
-                },
-                onSaved: (value) {
-                  _addMeal = Meal(
-                    id: _addMeal.id,
-                    title: _addMeal.title,
-                    categories: _addMeal.categories,
-                    description: value,
-                    imageUrl: _addMeal.imageUrl,
-                  );
-                },
-              ),
+              //image url
               TextFormField(
                 decoration: const InputDecoration(labelText: 'image URL'),
                 textInputAction: TextInputAction.done,
@@ -148,6 +83,173 @@ class _AddMealScreenState extends State<AddMealScreen> {
                     categories: _addMeal.categories,
                     description: _addMeal.description,
                     imageUrl: value,
+                  );
+                },
+              ),
+              SizedBox(height: 30),
+              //food name
+              Text('Food Name'),
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Enter food name',
+                  labelStyle: TextStyle(
+                    color: Color.fromRGBO(148, 157, 164, 1.0),
+                    fontSize: 17,
+                  ),
+                  floatingLabelBehavior: FloatingLabelBehavior.never,
+                  enabledBorder: new OutlineInputBorder(
+                    borderSide: new BorderSide(
+                      color: Color.fromRGBO(234, 236, 242, 1.0),
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15.0),
+                    ),
+                  ),
+                  focusedBorder: new OutlineInputBorder(
+                    borderSide: new BorderSide(
+                      color: Colors.black,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15.0),
+                    ),
+                  ),
+                  errorBorder: new OutlineInputBorder(
+                    borderSide: new BorderSide(
+                      color: Colors.red,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15.0),
+                    ),
+                  ),
+                  focusedErrorBorder: new OutlineInputBorder(
+                    borderSide: new BorderSide(
+                      color: Colors.red,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15.0),
+                    ),
+                  ),
+                  errorStyle: TextStyle(
+                    fontSize: 14.0,
+                  ),
+                ),
+                keyboardType: TextInputType.text,
+                textInputAction: TextInputAction.next,
+                onFieldSubmitted: (_) => _saveForm(),
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Pleave provide a value!';
+                  } else {
+                    return null;
+                  }
+                },
+                onSaved: (value) {
+                  _addMeal = Meal(
+                    id: _addMeal.id,
+                    title: value,
+                    categories: _addMeal.categories,
+                    description: _addMeal.description,
+                    imageUrl: _addMeal.imageUrl,
+                  );
+                },
+              ),
+              SizedBox(height: 30),
+              //description
+              Text('Description'),
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Tell a little about your food',
+                  labelStyle: TextStyle(
+                    color: Color.fromRGBO(148, 157, 164, 1.0),
+                    fontSize: 17,
+                  ),
+                  floatingLabelBehavior: FloatingLabelBehavior.never,
+                  enabledBorder: new OutlineInputBorder(
+                    borderSide: new BorderSide(
+                      color: Color.fromRGBO(234, 236, 242, 1.0),
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15.0),
+                    ),
+                  ),
+                  focusedBorder: new OutlineInputBorder(
+                    borderSide: new BorderSide(
+                      color: Colors.black,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15.0),
+                    ),
+                  ),
+                  errorBorder: new OutlineInputBorder(
+                    borderSide: new BorderSide(
+                      color: Colors.red,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15.0),
+                    ),
+                  ),
+                  focusedErrorBorder: new OutlineInputBorder(
+                    borderSide: new BorderSide(
+                      color: Colors.red,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15.0),
+                    ),
+                  ),
+                  errorStyle: TextStyle(
+                    fontSize: 14.0,
+                  ),
+                ),
+                keyboardType: TextInputType.text,
+                textInputAction: TextInputAction.next,
+                onFieldSubmitted: (_) => _saveForm(),
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Pleave provide a value!';
+                  } else {
+                    return null;
+                  }
+                },
+                onSaved: (value) {
+                  _addMeal = Meal(
+                    id: _addMeal.id,
+                    title: _addMeal.title,
+                    categories: _addMeal.categories,
+                    description: value,
+                    imageUrl: _addMeal.imageUrl,
+                  );
+                },
+              ),
+              SizedBox(height: 30),
+              //categories
+              Text('Categories'),
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Categories'),
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.text,
+                onFieldSubmitted: (_) => _saveForm(),
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Pleave provide a value!';
+                  } else {
+                    return null;
+                  }
+                },
+                onSaved: (value) {
+                  _addMeal = Meal(
+                    id: _addMeal.id,
+                    title: _addMeal.title,
+                    categories: value,
+                    description: _addMeal.description,
+                    imageUrl: _addMeal.imageUrl,
                   );
                 },
               ),

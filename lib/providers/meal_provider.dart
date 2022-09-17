@@ -1,15 +1,25 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/models/http_exception.dart';
 import '../data/meal.dart';
 import 'package:http/http.dart' as http;
+
+/*
+FUNCTIONS
+- Get all meal
+- Get meal Id
+- Match with category Id
+- Fetch meal
+- Add meal
+*/
 
 class Meals with ChangeNotifier {
   List<Meal> _meals = [];
   final String authToken;
-  // final String userId;
+  final String userId;
 
-  Meals(this.authToken, this._meals);
+  Meals(this.authToken, this.userId, this._meals);
 
   List<Meal> get allMeals {
     return [..._meals];
@@ -23,9 +33,10 @@ class Meals with ChangeNotifier {
     return _meals.where((element) => element.categories.contains(id)).toList();
   }
 
-  Future<void> fetchMeals() async {
+  Future<void> fetchMeals([bool filterByUser = false]) async {
+    final filterString = filterByUser ? 'orderBy="creatorId"&equalTo="$userId"' : '';
     final url = Uri.parse(
-        'https://meal-app-a9ac5-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json?auth=$authToken');
+        'https://meal-app-a9ac5-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json?auth=$authToken&$filterString');
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
@@ -58,7 +69,7 @@ class Meals with ChangeNotifier {
           'categories': meal.categories,
           'description': meal.description,
           'imageUrl': meal.imageUrl,
-          // 'creatorId': userId,
+          'creatorId': userId,
         }),
       );
       final newMeal = Meal(
@@ -75,6 +86,28 @@ class Meals with ChangeNotifier {
       return Future.delayed(const Duration(seconds: 5));
     } catch (error) {
       debugPrint(error);
+      throw error;
+    }
+  }
+
+  Future<void> deleteMeal(String id) async {
+    final url = Uri.parse(
+      'https://meal-app-a9ac5-default-rtdb.asia-southeast1.firebasedatabase.app/meals/$id.json?auth=$authToken',
+    );
+    try {
+      final existingMealIndex = _meals.indexWhere((meal) => meal.id == id);
+      var existingMeal = _meals[existingMealIndex];
+      allMeals.removeAt(existingMealIndex);
+      notifyListeners();
+
+      final response = await http.delete(url);
+      if (response.statusCode >= 400) {
+        _meals.insert(existingMealIndex, existingMeal);
+        notifyListeners();
+        throw HttpException('Could not delete meal.');
+      }
+      existingMeal = null;
+    } catch (error) {
       throw error;
     }
   }

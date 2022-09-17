@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/screens/login_screen.dart';
+import 'package:flutter_complete_guide/screens/signup_screen.dart';
+import 'package:flutter_complete_guide/screens/splash_screen.dart';
 import '../data/category.dart';
 import '../providers/auth.dart';
 import '../providers/category_provider.dart';
@@ -33,9 +36,10 @@ class MyApp extends StatelessWidget {
           create: (ctx) => Auth(),
         ),
         ChangeNotifierProxyProvider<Auth, Meals>(
-          create: (ctx) => Meals('', []),
+          create: (ctx) => Meals('', '', []),
           update: (ctx, auth, previousProduct) => Meals(
             auth.token,
+            auth.userId,
             previousProduct == null ? [] : previousProduct.allMeals,
           ),
         ),
@@ -61,7 +65,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Uzair Meal',
           theme: ThemeData(
-            textTheme: GoogleFonts.archivoTextTheme(
+            textTheme: GoogleFonts.interTextTheme(
               ThemeData.light().textTheme.copyWith(
                     bodyText1: TextStyle(
                       color: Color.fromRGBO(4, 38, 40, 1.0),
@@ -73,15 +77,25 @@ class MyApp extends StatelessWidget {
             ),
             colorScheme:
                 ThemeData().colorScheme.copyWith(primary: Colors.black),
-            canvasColor: Color.fromRGBO(247, 243, 239, 1),
             primaryColor: Color.fromRGBO(4, 38, 40, 1.0),
           ),
-          home: auth.isAuth ? TabsScreen() : AuthScreen(),
+          home: auth.isAuth
+              ? TabsScreen()
+              : FutureBuilder(
+                  future: auth.tryAutoLogin(),
+                  builder: (ctx, authResultSnapshot) =>
+                      authResultSnapshot.connectionState ==
+                              ConnectionState.waiting
+                          ? SplashScreen()
+                          : AuthScreen(),
+                ),
           initialRoute: '/',
           routes: {
             CategoryDetailScreen.routeName: (ctx) => CategoryDetailScreen(),
             MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
-            TabsScreen.routeName: (ctx) => TabsScreen()
+            TabsScreen.routeName: (ctx) => TabsScreen(),
+            LoginScreen.routeName: (ctx) => LoginScreen(),
+            SignUpScreen.routeName: (ctx) => SignUpScreen(),
           },
         ),
       ),

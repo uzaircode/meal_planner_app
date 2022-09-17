@@ -76,8 +76,10 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final mealData = Provider.of<Meals>(context, listen: false);
-    final meals = mealData.allMeals;
+    Future<void> _refreshMeal(BuildContext context) async {
+      await Provider.of<Meals>(context, listen: false).fetchMeals(true);
+    }
+
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
@@ -145,14 +147,26 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
                           color: Colors.blue,
                         ),
                       )
-                    : ListView.builder(
-                        padding: EdgeInsets.all(8),
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: meals.length,
-                        itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
-                          value: meals[i],
-                          child: MealItem(),
+                    : RefreshIndicator(
+                        onRefresh: () => _refreshMeal(context),
+                        child: Consumer<Meals>(
+                          builder: (ctx, productsData, _) => Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: productsData.allMeals.length,
+                              itemBuilder: (_, i) => Column(
+                                children: [
+                                  MealItem(
+                                    productsData.allMeals[i].id,
+                                    productsData.allMeals[i].title,
+                                    productsData.allMeals[i].imageUrl,
+                                  ),
+                                  const Divider(),
+                                ],
+                              ),
+                            ),
+                          ),
                         ),
                       ),
               ],

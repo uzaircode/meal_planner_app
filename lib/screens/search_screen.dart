@@ -17,39 +17,40 @@ class _SearchScreenState extends State<SearchScreen> {
 
   var _isLoading = false;
 
-  @override
-  void initState() {
-    // Provider.of<Products>(context).fetchProduct(); //wont work!
-    Future.delayed(Duration.zero).then(
-      (value) => Provider.of<Meals>(context, listen: false).fetchMeals(),
-    );
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   // Provider.of<Products>(context).fetchProduct(); //wont work!
+  //   Future.delayed(Duration.zero).then(
+  //     (value) => Provider.of<Meals>(context, listen: false).fetchMeals(true),
+  //   );
+  //   super.initState();
+  // }
 
-  @override
-  void didChangeDependencies() {
-    if (_isInit) {
-      setState(() {
-        _isLoading = true;
-      });
-      Provider.of<Meals>(context, listen: false).fetchMeals().then((_) {
-        setState(() {
-          _isLoading = false;
-        });
-      });
-    }
-  }
+  // @override
+  // void didChangeDependencies() {
+  //   if (_isInit) {
+  //     setState(() {
+  //       _isLoading = true;
+  //     });
+  //     Provider.of<Meals>(context, listen: false).fetchMeals().then((_) {
+  //       setState(() {
+  //         _isLoading = false;
+  //       });
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
-    final mealData = Provider.of<Meals>(context, listen: false);
-    final meals = mealData.allMeals;
-
+    Future<void> _refreshMeal(BuildContext context) async {
+      await Provider.of<Meals>(context, listen: false).fetchMeals(true);
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text(
           'Search',
           style: TextStyle(
+            color: Theme.of(context).primaryColor,
             fontSize: 30.0,
             fontWeight: FontWeight.w500,
           ),
@@ -58,18 +59,34 @@ class _SearchScreenState extends State<SearchScreen> {
         elevation: 0.0,
         backgroundColor: Theme.of(context).canvasColor,
       ),
-      body: SingleChildScrollView(
-        child: ListView.builder(
-          padding: EdgeInsets.all(8),
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: meals.length,
-          itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
-            value: meals[i],
-            child: MealItem(),
-          ),
-        ),
-      ),
+      body: _isLoading
+          ? const Center(
+              child: CircularProgressIndicator(
+                color: Colors.blue,
+              ),
+            )
+          : RefreshIndicator(
+              onRefresh: () => _refreshMeal(context),
+              child: Consumer<Meals>(
+                builder: (ctx, productsData, _) => Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: productsData.allMeals.length,
+                    itemBuilder: (_, i) => Column(
+                      children: [
+                        MealItem(
+                          productsData.allMeals[i].id,
+                          productsData.allMeals[i].title,
+                          productsData.allMeals[i].imageUrl,
+                        ),
+                        const Divider(),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
     );
   }
 }
